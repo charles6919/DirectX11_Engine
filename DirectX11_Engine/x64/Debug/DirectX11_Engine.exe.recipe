@@ -2,12 +2,15 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\DirectX11Project\DirectX11_Engine\x64\Debug\DirectX11_Engine.exe</FullPath>
+      <FullPath>D:\DirectX11Project\DirectX11_Engine\DirectX11_Engine\x64\Debug\DirectX11_Engine.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>D:\DirectX11Project\DirectX11_Engine\x64\Debug\VertexShader.cso</FullPath>
+      <FullPath>D:\DirectX11Project\DirectX11_Engine\DirectX11_Engine\x64\Debug\PixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\DirectX11Project\DirectX11_Engine\DirectX11_Engine\x64\Debug\VertexShader.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "098a3e4f-b25d-4156-af90-7ac922cd11e7": {
+      "ProjectGuid": "098a3e4f-b25d-4156-af90-7ac922cd11e7",
+      "DisplayName": "DirectX11_Engine",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

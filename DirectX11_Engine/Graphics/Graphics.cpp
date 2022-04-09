@@ -79,6 +79,19 @@ bool Graphics::InitializeDirectX(HWND _hWnd, int _width, int _height)
 
 	deviceContext->OMSetRenderTargets(1, renderTargetView.GetAddressOf(), NULL);
 
+	//Create the Viewport
+	D3D11_VIEWPORT viewport;
+	ZeroMemory(&viewport, sizeof(D3D11_VIEWPORT));
+
+	viewport.TopLeftX = 0.0f;
+	viewport.TopLeftY = 0.0f;
+	viewport.Width = _width;
+	viewport.TopLeftX = _height;
+
+	//Set the Viewport
+	deviceContext->RSSetViewports(1, &viewport);
+
+
 	return true;
 }
 
@@ -101,10 +114,6 @@ bool Graphics::InitializeShaders()
 #endif
 #pragma endregion DetermineShaderPath
 
-	if (!vertexShader.Initialize(device, shaderFolder + L"VertexShader.cso"))
-	{
-		return false;
-	}
 
 	D3D11_INPUT_ELEMENT_DESC layout[] =
 	{
@@ -113,10 +122,13 @@ bool Graphics::InitializeShaders()
 
 	UINT numElements = ARRAYSIZE(layout);
 
-	HRESULT hr = device->CreateInputLayout(layout, numElements, vertexShader.GetBuffer()->GetBufferPointer(), vertexShader.GetBuffer()->GetBufferSize(), inputLayout.GetAddressOf());
-	if (FAILED(hr))
+	if (!vertexShader.Initialize(device, shaderFolder + L"VertexShader.cso", layout, numElements))
 	{
-		ErrorLogger::Log(hr, "Failed to create input layout.");
+		return false;
+	}
+
+	if (!pixelShader.Initialize(device, shaderFolder + L"PixelShader.cso"))
+	{
 		return false;
 	}
 
