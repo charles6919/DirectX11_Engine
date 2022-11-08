@@ -1,11 +1,12 @@
 #pragma once
 #include <DirectXMath.h>
 
-struct Vertex2D
+struct Vertex
 {
-	Vertex2D() {}
-	Vertex2D(float x, float y)
-		:pos(x,y){}
+	Vertex() {}
+	Vertex(float x, float y, float z, float r, float g, float b)
+		:pos(x,y,z), color(r,g,b) {}
 
-	DirectX::XMFLOAT2 pos;
+	DirectX::XMFLOAT3 pos;
+	DirectX::XMFLOAT3 color;
 };
